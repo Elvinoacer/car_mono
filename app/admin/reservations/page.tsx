@@ -33,7 +33,7 @@ export default function AdminReservations() {
                   <td className="p-4 font-body-md text-body-md text-primary">{res.client}</td>
                   <td className="p-4">
                     <span className={`px-2 py-1 font-label-sm text-[10px] uppercase tracking-widest ${
-                      res.status === "Active" ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800"
+                      res.status === "Active" ? "bg-secondary-container text-on-secondary-container" : "bg-surface-container text-on-surface-variant"
                     }`}>
                       {res.status}
                     </span>

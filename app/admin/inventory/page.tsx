@@ -41,8 +41,8 @@ export default function AdminInventory() {
                   <td className="p-4 font-technical-data text-technical-data text-primary">{item.price}</td>
                   <td className="p-4">
                     <span className={`px-2 py-1 font-label-sm text-[10px] uppercase tracking-widest ${
-                      item.status === "Available" ? "bg-green-100 text-green-800" : 
-                      item.status === "Reserved" ? "bg-amber-100 text-amber-800" : "bg-zinc-100 text-zinc-800"
+                      item.status === "Available" ? "bg-secondary-container text-on-secondary-container" : 
+                      item.status === "Reserved" ? "bg-secondary text-on-secondary" : "bg-surface-container text-on-surface-variant"
                     }`}>
                       {item.status}
                     </span>

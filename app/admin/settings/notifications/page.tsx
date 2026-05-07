@@ -4,10 +4,10 @@ export default function NotificationSettingsPage() {
   return (
     <div className="flex flex-col md:flex-row gap-12">
       {/* Settings Side Nav */}
-      <aside className="w-full md:w-64 flex-shrink-0">
+      <aside className="w-full md:w-64 shrink-0">
         <div className="sticky top-28">
-          <h2 className="text-2xl font-serif font-bold text-zinc-900 mb-8">Settings</h2>
-          <nav className="flex flex-col space-y-4 border-l border-zinc-200 pl-4">
+          <h2 className="text-2xl font-serif font-bold text-on-surface mb-8">Settings</h2>
+          <nav className="flex flex-col space-y-4 border-l border-outline-variant pl-4">
             {[
               { label: 'General', active: false },
               { label: 'Team Access', active: false },
@@ -17,7 +17,7 @@ export default function NotificationSettingsPage() {
             ].map((item, idx) => (
               <button 
                 key={idx}
-                className={`text-[10px] font-bold uppercase tracking-widest transition-colors py-1 text-left ${item.active ? 'text-amber-600 border-l-2 border-amber-600 -ml-[17px] pl-4' : 'text-zinc-500 hover:text-zinc-900'}`}
+                className={`text-[10px] font-bold uppercase tracking-widest transition-colors py-1 text-left ${item.active ? 'text-secondary border-l-2 border-secondary -ml-4.25 pl-4' : 'text-on-surface-variant hover:text-primary'}`}
               >
                 {item.label}
               </button>
@@ -27,21 +27,21 @@ export default function NotificationSettingsPage() {
       </aside>
 
       {/* Main Content Canvas */}
-      <div className="flex-grow space-y-12">
-        <header className="border-b border-zinc-200 pb-6 mb-8">
-          <h1 className="text-6xl font-serif font-bold text-zinc-900">Notification Preferences</h1>
-          <p className="text-lg text-zinc-500 mt-4 max-w-2xl">Configure global alert thresholds and define how system events are routed to administrative personnel.</p>
+      <div className="grow space-y-12">
+        <header className="border-b border-outline-variant pb-6 mb-8">
+          <h1 className="text-6xl font-serif font-bold text-on-surface">Notification Preferences</h1>
+          <p className="text-lg text-on-surface-variant mt-4 max-w-2xl">Configure global alert thresholds and define how system events are routed to administrative personnel.</p>
         </header>
 
         {/* SLA Configuration Grid */}
         <section>
-          <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-6">Service Level Agreements (SLA)</h3>
-          <div className="bg-white border border-zinc-200 p-8 space-y-8 shadow-sm">
+          <h3 className="text-2xl font-serif font-bold text-on-surface mb-6">Service Level Agreements (SLA)</h3>
+          <div className="bg-surface-container-lowest border border-outline-variant p-8 space-y-8 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
               <div>
-                <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-900 block mb-2">Lead Response Threshold</label>
-                <p className="text-sm text-zinc-500 mb-4">Time elapsed before a new web lead is escalated.</p>
-                <select className="bg-zinc-50 border border-zinc-200 text-zinc-900 text-sm font-medium py-2 px-4 focus:ring-amber-500 focus:border-amber-500 w-full md:w-auto">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-on-surface block mb-2">Lead Response Threshold</label>
+                <p className="text-sm text-on-surface-variant mb-4">Time elapsed before a new web lead is escalated.</p>
+                <select className="bg-surface-container-low border border-outline-variant text-on-surface text-sm font-medium py-2 px-4 focus:ring-secondary focus:border-secondary w-full md:w-auto">
                   <option>15 Minutes</option>
                   <option selected>30 Minutes</option>
                   <option>1 Hour</option>
@@ -49,18 +49,18 @@ export default function NotificationSettingsPage() {
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-900 block mb-2">Escalation Recipients</label>
-                <p className="text-sm text-zinc-500 mb-4">Users notified when SLA thresholds are breached.</p>
-                <div className="flex flex-wrap gap-2 border-b border-zinc-200 pb-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-on-surface block mb-2">Escalation Recipients</label>
+                <p className="text-sm text-on-surface-variant mb-4">Users notified when SLA thresholds are breached.</p>
+                <div className="flex flex-wrap gap-2 border-b border-outline-variant pb-2">
                   {['Management Team', 'Director of Sales'].map((tag, idx) => (
-                    <span key={idx} className="bg-zinc-100 text-zinc-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                    <span key={idx} className="bg-surface-container text-on-surface px-3 py-1 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
                       {tag}
-                      <button className="hover:text-red-600 transition-colors">
+                      <button className="hover:text-error transition-colors">
                         <span className="material-symbols-outlined text-sm">close</span>
                       </button>
                     </span>
                   ))}
-                  <button className="ml-auto text-zinc-400 hover:text-zinc-900 transition-colors">
+                  <button className="ml-auto text-on-surface-variant hover:text-primary transition-colors">
                     <span className="material-symbols-outlined">add_circle</span>
                   </button>
                 </div>
@@ -72,17 +72,17 @@ export default function NotificationSettingsPage() {
         {/* Event Routing Matrix */}
         <section>
           <div className="flex justify-between items-end mb-6">
-            <h3 className="text-2xl font-serif font-bold text-zinc-900">Event Routing Matrix</h3>
-            <button className="text-[10px] font-bold uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors">Reset to Defaults</button>
+            <h3 className="text-2xl font-serif font-bold text-on-surface">Event Routing Matrix</h3>
+            <button className="text-[10px] font-bold uppercase tracking-widest text-secondary hover:text-secondary transition-colors">Reset to Defaults</button>
           </div>
-          <div className="bg-zinc-200 gap-[1px] grid grid-cols-4 w-full border border-zinc-200">
+          <div className="bg-outline-variant gap-[1px] grid grid-cols-4 w-full border border-outline-variant">
             {/* Table Header */}
-            <div className="bg-zinc-50 p-4 col-span-1">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Event Type</span>
+            <div className="bg-surface-container-low p-4 col-span-1">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Event Type</span>
             </div>
             {['Email', 'SMS', 'WhatsApp'].map(type => (
-              <div key={type} className="bg-zinc-50 p-4 text-center">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{type}</span>
+              <div key={type} className="bg-surface-container-low p-4 text-center">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{type}</span>
               </div>
             ))}
             
@@ -94,14 +94,14 @@ export default function NotificationSettingsPage() {
               { label: 'Accounting Sync Failure', channels: [true, false, false], alert: true },
             ].map((row, idx) => (
               <React.Fragment key={idx}>
-                <div className="bg-white p-4 flex items-center">
-                  <span className={`text-sm font-medium ${row.alert ? 'text-red-600' : 'text-zinc-900'}`}>{row.label}</span>
+                <div className="bg-surface-container-lowest p-4 flex items-center">
+                  <span className={`text-sm font-medium ${row.alert ? 'text-error' : 'text-on-surface'}`}>{row.label}</span>
                 </div>
                 {row.channels.map((active, cIdx) => (
-                  <div key={cIdx} className="bg-white p-4 flex justify-center items-center">
+                  <div key={cIdx} className="bg-surface-container-lowest p-4 flex justify-center items-center">
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input type="checkbox" checked={active} readOnly className="sr-only peer" />
-                      <div className={`w-11 h-6 bg-zinc-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-amber-500 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all ${row.alert ? 'peer-checked:bg-red-600' : 'peer-checked:bg-amber-500'}`}></div>
+                      <div className={`w-11 h-6 bg-outline-variant rounded-full peer peer-focus:ring-2 peer-focus:ring-secondary peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all ${row.alert ? 'peer-checked:bg-error' : 'peer-checked:bg-secondary'}`}></div>
                     </label>
                   </div>
                 ))}
@@ -111,11 +111,11 @@ export default function NotificationSettingsPage() {
         </section>
 
         {/* Action Bar */}
-        <div className="flex justify-end gap-4 border-t border-zinc-200 pt-8 mt-12">
-          <button className="border border-zinc-200 text-zinc-900 text-[10px] font-bold uppercase tracking-widest py-4 px-8 hover:border-amber-500 hover:text-amber-600 transition-all">
+        <div className="flex justify-end gap-4 border-t border-outline-variant pt-8 mt-12">
+          <button className="border border-outline-variant text-on-surface text-[10px] font-bold uppercase tracking-widest py-4 px-8 hover:border-secondary hover:text-secondary transition-all">
             Discard Changes
           </button>
-          <button className="bg-zinc-900 text-white text-[10px] font-bold uppercase tracking-widest py-4 px-8 hover:bg-amber-600 transition-colors">
+          <button className="bg-primary text-on-primary text-[10px] font-bold uppercase tracking-widest py-4 px-8 hover:bg-secondary transition-colors">
             Save Configuration
           </button>
         </div>

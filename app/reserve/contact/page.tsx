@@ -20,7 +20,7 @@ export default function ReserveStep2() {
       </header>
 
       {/* Main Content Grid */}
-      <main className="flex-grow w-full max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+      <main className="grow w-full max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 lg:grid-cols-12 gap-gutter">
         {/* Left Column: Form Section */}
         <section className="lg:col-span-7 flex flex-col gap-12">
           {/* Progress Indicator */}
@@ -28,7 +28,7 @@ export default function ReserveStep2() {
             <div className="font-label-sm text-label-sm uppercase tracking-widest text-secondary">
               Step 02 / 03 — Contact Verification
             </div>
-            <div className="flex gap-1 h-[2px] w-full bg-surface-variant">
+            <div className="flex gap-1 h-0.5 w-full bg-surface-variant">
               <div className="w-1/3 bg-primary h-full"></div>
               <div className="w-1/3 bg-primary h-full"></div>
               <div className="w-1/3 bg-transparent h-full"></div>
@@ -155,7 +155,7 @@ export default function ReserveStep2() {
           {/* Sticky Container for Sidebar */}
           <div className="sticky top-32 flex flex-col bg-surface-container-low border border-outline-variant">
             {/* Vehicle Image */}
-            <div className="w-full aspect-[16/10] bg-surface-variant relative border-b border-outline-variant">
+            <div className="w-full aspect-16/10 bg-surface-variant relative border-b border-outline-variant">
               <img
                 className="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Mul6kfMgTujAyHtQsvp66F03W8Z5Nq2Orm1_XIoyR7be3B-x6JbS0vD3Evla3aYtG6XD2aKaIRKRDm9VKVrS7sVJbH5VnHa2loDu7Em6OAOE7yN_UpA9_0AjG8f0ylAXX2vgg9qYInspwD5L7XHCYx8N80LJfaGx9PvnbNY0Q6FitH8-GruKjvHpdIcfNFn1Ae5weaBY-hsxmnKek7lCc4DxiGMYB32NyS4Yc1vNx62TKq3CdYlaPaJSgi92vE4zna2YoEVfuQ0"
@@ -209,10 +209,10 @@ export default function ReserveStep2() {
         </aside>
       </main>
       {/* Reusing Footer for precision */}
-      <footer className="w-full bg-primary dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline mt-auto">
+      <footer className="w-full bg-primary text-on-primary border-t border-outline-variant mt-auto">
         <div className="flex flex-col items-center w-full py-section-padding px-gutter max-w-container-max mx-auto gap-12">
           <Link
-            className="font-headline-md text-headline-md text-on-primary dark:text-on-surface font-bold tracking-tighter"
+            className="font-headline-md text-headline-md text-on-primary font-bold tracking-tighter"
             href="#"
           >
             MONOLITH
@@ -227,14 +227,14 @@ export default function ReserveStep2() {
             ].map((link, idx) => (
               <Link
                 key={idx}
-                className="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer"
+                className="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container hover:text-secondary transition-colors duration-300 cursor-pointer"
                 href={link === "Contact" ? "/reserve/contact" : "/legal"}
               >
                 {link}
               </Link>
             ))}
           </nav>
-          <p className="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant text-center">
+          <p className="font-body-md text-body-md text-on-primary-container text-center">
             © 2024 MONOLITH AUTOMOTIVE. ALL RIGHTS RESERVED.
           </p>
         </div>

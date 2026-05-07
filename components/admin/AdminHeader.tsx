@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function AdminHeader({ title }: { title: string }) {
   return (
@@ -14,6 +15,7 @@ export default function AdminHeader({ title }: { title: string }) {
           <span className="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full border border-surface"></span>
         </Link>
         <div className="w-[1px] h-6 bg-outline-variant"></div>
+        <ThemeToggle />
         <Link 
           href="/admin/inventory/create"
           className="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-6 py-3 flex items-center gap-2 hover:bg-inverse-surface transition-colors duration-300"
