@@ -209,10 +209,10 @@ export default function ReserveStep2() {
         </aside>
       </main>
       {/* Reusing Footer for precision */}
-      <footer className="w-full bg-primary text-on-primary border-t border-outline-variant mt-auto">
+      <footer className="w-full bg-footer text-on-footer border-t border-outline-variant mt-auto">
         <div className="flex flex-col items-center w-full py-section-padding px-gutter max-w-container-max mx-auto gap-12">
           <Link
-            className="font-headline-md text-headline-md text-on-primary font-bold tracking-tighter"
+            className="font-headline-md text-headline-md text-on-footer font-bold tracking-tighter"
             href="#"
           >
             MONOLITH
@@ -227,14 +227,14 @@ export default function ReserveStep2() {
             ].map((link, idx) => (
               <Link
                 key={idx}
-                className="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container hover:text-secondary transition-colors duration-300 cursor-pointer"
+                className="font-label-sm text-label-sm uppercase tracking-widest text-on-footer-variant hover:text-secondary transition-colors duration-300 cursor-pointer"
                 href={link === "Contact" ? "/reserve/contact" : "/legal"}
               >
                 {link}
               </Link>
             ))}
           </nav>
-          <p className="font-body-md text-body-md text-on-primary-container text-center">
+          <p className="font-body-md text-body-md text-on-footer-variant text-center">
             © 2024 MONOLITH AUTOMOTIVE. ALL RIGHTS RESERVED.
           </p>
         </div>
