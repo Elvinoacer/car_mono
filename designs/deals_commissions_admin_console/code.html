@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Deals &amp; Commissions Ledger | MONOLITH</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#858383",
+                        "on-tertiary-container": "#7f8587",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f1edec",
+                        "on-tertiary-fixed-variant": "#42484a",
+                        "tertiary-container": "#171c1f",
+                        "on-error": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "surface": "#fdf8f8",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#e9c176",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed-dim": "#c2c7ca",
+                        "on-secondary-fixed": "#261900",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#dee3e6",
+                        "on-secondary-container": "#785a1a",
+                        "on-error-container": "#93000a",
+                        "secondary": "#775a19",
+                        "on-tertiary-fixed": "#171c1f",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ddd9d8",
+                        "inverse-primary": "#c8c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-container-high": "#ebe7e6",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474646",
+                        "background": "#fdf8f8",
+                        "secondary-container": "#fed488",
+                        "on-surface": "#1c1b1b",
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fdf8f8",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "120px",
+                        "gutter": "32px",
+                        "technical-grid-gap": "1px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Serif"],
+                        "technical-data": ["Manrope"],
+                        "display-xl": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "technical-data": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Luxury Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e5e2e1; border-radius: 0px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c4c7c7; }
+    </style>
+</head>
+<body class="bg-background text-primary font-body-md antialiased selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar Component -->
+<header class="bg-surface dark:bg-primary-container text-primary dark:text-primary-fixed border-b border-outline-variant dark:border-outline flat no shadows sticky top-0 z-50 w-full">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<div class="flex items-center gap-8">
+<a class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary-fixed cursor-pointer transition-opacity duration-200 active:opacity-70" href="#">MONOLITH</a>
+<!-- Search (on_left) -->
+<div class="hidden lg:flex items-center gap-2 border-b border-outline-variant pb-1">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none outline-none focus:ring-0 font-label-sm text-label-sm uppercase tracking-widest text-primary placeholder:text-outline-variant w-48" placeholder="Search inventory or deals..." type="text"/>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 font-label-sm text-label-sm uppercase tracking-widest">
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 cursor-pointer transition-opacity duration-200 active:opacity-70 pb-1" href="#">Inventory</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 cursor-pointer transition-opacity duration-200 active:opacity-70 pb-1" href="#">Locations</a>
+<!-- Active State Logic Applied to Finance -->
+<a class="text-secondary dark:text-secondary-fixed-dim border-b border-secondary hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 cursor-pointer transition-opacity duration-200 active:opacity-70 pb-1" href="#">Finance</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-6">
+<button class="font-label-sm text-label-sm uppercase tracking-widest cursor-pointer transition-opacity duration-200 active:opacity-70 text-on-surface-variant hover:text-secondary transition-colors duration-300">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-sm text-label-sm uppercase tracking-widest hover:bg-inverse-surface transition-colors duration-300">Reserve</button>
+</div>
+</div>
+</header>
+<!-- Main Admin Canvas -->
+<main class="w-full px-gutter max-w-container-max mx-auto py-12 min-h-screen">
+<!-- Page Header & Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-2">Finance Control</p>
+<h1 class="font-headline-lg text-headline-lg">Deals &amp; Commissions</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="border border-outline-variant text-primary px-6 py-3 font-label-sm text-label-sm uppercase tracking-widest hover:border-secondary hover:text-secondary transition-colors duration-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Export CSV
+                </button>
+<button class="bg-primary text-on-primary px-6 py-3 font-label-sm text-label-sm uppercase tracking-widest hover:bg-inverse-surface transition-colors duration-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">payments</span>
+                    Create Pay Run
+                </button>
+</div>
+</div>
+<!-- Filter Controls -->
+<div class="flex flex-wrap items-center gap-6 mb-8 p-6 bg-surface-container border border-surface-variant rounded-none">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Date Range</label>
+<select class="bg-transparent border-b border-outline-variant border-t-0 border-l-0 border-r-0 focus:ring-0 focus:border-primary font-technical-data text-technical-data py-2 px-0 pr-8 min-w-[180px]">
+<option>Q3 2024</option>
+<option>Q2 2024</option>
+<option>YTD 2024</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Salesperson</label>
+<select class="bg-transparent border-b border-outline-variant border-t-0 border-l-0 border-r-0 focus:ring-0 focus:border-primary font-technical-data text-technical-data py-2 px-0 pr-8 min-w-[180px]">
+<option>All Personnel</option>
+<option>Julian Pierce</option>
+<option>Elena Rostova</option>
+<option>Marcus Vance</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Deal Status</label>
+<select class="bg-transparent border-b border-outline-variant border-t-0 border-l-0 border-r-0 focus:ring-0 focus:border-primary font-technical-data text-technical-data py-2 px-0 pr-8 min-w-[180px]">
+<option>Any Status</option>
+<option>CLOSED</option>
+<option>INSPECTION</option>
+<option>OPEN</option>
+</select>
+</div>
+<div class="ml-auto">
+<button class="text-secondary hover:text-on-secondary-container font-label-sm text-label-sm uppercase tracking-widest transition-colors duration-300 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">filter_list_off</span>
+                    Clear Filters
+                </button>
+</div>
+</div>
+<!-- Ledger Data Table -->
+<div class="w-full overflow-x-auto border border-surface-variant">
+<table class="w-full text-left border-collapse whitespace-nowrap">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-outline-variant">
+<th class="py-4 px-6 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-normal">Vehicle</th>
+<th class="py-4 px-6 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-normal">Customer Name</th>
+<th class="py-4 px-6 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-normal">Salesperson</th>
+<th class="py-4 px-6 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-normal text-right">Sale Price</th>
+<th class="py-4 px-6 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-normal text-right">Gross Profit</th>
+<th class="py-4 px-6 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-normal text-right">Commission</th>
+<th class="py-4 px-6 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-normal text-center">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150">
+<td class="py-4 px-6 font-technical-data text-technical-data">2023 Porsche 911 GT3 RS</td>
+<td class="py-4 px-6 font-body-md text-primary">Alexander Sterling</td>
+<td class="py-4 px-6 font-body-md text-on-surface-variant">Julian Pierce</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$315,000.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$42,500.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$8,500.00</td>
+<td class="py-4 px-6 text-center">
+<span class="inline-block border border-primary text-primary px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest">CLOSED</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150">
+<td class="py-4 px-6 font-technical-data text-technical-data">2024 Mercedes-AMG G 63</td>
+<td class="py-4 px-6 font-body-md text-primary">Victoria Vanguard</td>
+<td class="py-4 px-6 font-body-md text-on-surface-variant">Elena Rostova</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$195,500.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$28,000.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right text-on-surface-variant">Pending</td>
+<td class="py-4 px-6 text-center">
+<span class="inline-block border border-secondary text-secondary px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest">INSPECTION</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150">
+<td class="py-4 px-6 font-technical-data text-technical-data">2022 Ferrari Roma</td>
+<td class="py-4 px-6 font-body-md text-primary">Donovan Hayes</td>
+<td class="py-4 px-6 font-body-md text-on-surface-variant">Julian Pierce</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$245,000.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$35,200.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right text-on-surface-variant">Pending</td>
+<td class="py-4 px-6 text-center">
+<span class="inline-block border border-outline-variant text-on-surface-variant px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest">OPEN</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150">
+<td class="py-4 px-6 font-technical-data text-technical-data">2024 Aston Martin DB12</td>
+<td class="py-4 px-6 font-body-md text-primary">Corporate Acquisition</td>
+<td class="py-4 px-6 font-body-md text-on-surface-variant">Marcus Vance</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$268,000.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$31,000.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$6,200.00</td>
+<td class="py-4 px-6 text-center">
+<span class="inline-block border border-primary text-primary px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest">CLOSED</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150">
+<td class="py-4 px-6 font-technical-data text-technical-data">2021 Lamborghini Huracán EVO</td>
+<td class="py-4 px-6 font-body-md text-primary">Silvia Rossi</td>
+<td class="py-4 px-6 font-body-md text-on-surface-variant">Elena Rostova</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$289,900.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$45,000.00</td>
+<td class="py-4 px-6 font-technical-data text-technical-data text-right">$9,000.00</td>
+<td class="py-4 px-6 text-center">
+<span class="inline-block border border-primary text-primary px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest">CLOSED</span>
+</td>
+</tr>
+</tbody>
+<!-- Summary Row -->
+<tfoot class="bg-surface-container border-t-2 border-primary">
+<tr>
+<td class="py-6 px-6 font-headline-md text-headline-md text-right" colspan="3">View Totals</td>
+<td class="py-6 px-6 font-technical-data text-technical-data text-right text-lg">$1,313,400.00</td>
+<td class="py-6 px-6 font-technical-data text-technical-data text-right text-lg">$181,700.00</td>
+<td class="py-6 px-6 font-technical-data text-technical-data text-right text-lg text-secondary">$23,700.00</td>
+<td></td>
+</tr>
+</tfoot>
+</table>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-primary dark:bg-surface-container-lowest text-on-primary dark:text-on-surface border-t border-outline-variant dark:border-outline flat no shadows full-width">
+<div class="flex flex-col items-center w-full py-section-padding px-gutter max-w-container-max mx-auto gap-12">
+<!-- Brand -->
+<div class="font-headline-md text-headline-md text-on-primary dark:text-on-surface">
+                MONOLITH
+            </div>
+<!-- Links -->
+<nav class="flex flex-wrap justify-center gap-8 font-label-sm text-label-sm uppercase tracking-widest">
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Privacy Policy</a>
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Terms of Service</a>
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Cookie Policy</a>
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Corporate</a>
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Contact</a>
+</nav>
+<!-- Copyright -->
+<div class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant mt-8 text-center">
+                © 2024 MONOLITH AUTOMOTIVE. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>

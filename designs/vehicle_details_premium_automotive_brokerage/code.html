@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MONOLITH - Vehicle Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#858383",
+                        "on-tertiary-container": "#7f8587",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f1edec",
+                        "on-tertiary-fixed-variant": "#42484a",
+                        "tertiary-container": "#171c1f",
+                        "on-error": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "surface": "#fdf8f8",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#e9c176",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed-dim": "#c2c7ca",
+                        "on-secondary-fixed": "#261900",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#dee3e6",
+                        "on-secondary-container": "#785a1a",
+                        "on-error-container": "#93000a",
+                        "secondary": "#775a19",
+                        "on-tertiary-fixed": "#171c1f",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ddd9d8",
+                        "inverse-primary": "#c8c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-container-high": "#ebe7e6",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474646",
+                        "background": "#fdf8f8",
+                        "secondary-container": "#fed488",
+                        "on-surface": "#1c1b1b",
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fdf8f8",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "120px",
+                        "gutter": "32px",
+                        "technical-grid-gap": "1px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Serif"],
+                        "technical-data": ["Manrope"],
+                        "display-xl": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "technical-data": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-primary-container border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<div class="flex items-center gap-4">
+<a class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary-fixed uppercase" href="#">MONOLITH</a>
+</div>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary dark:text-secondary-fixed-dim border-b border-secondary pb-1 transition-colors duration-300" href="#">Inventory</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 pb-1" href="#">Locations</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 pb-1" href="#">Finance</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer transition-opacity duration-200 active:opacity-70 hover:text-secondary dark:hover:text-secondary-fixed" data-icon="search">search</span>
+<button class="hidden md:block bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-6 py-3 hover:bg-secondary transition-colors duration-300">Reserve</button>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer transition-opacity duration-200 active:opacity-70 hover:text-secondary dark:hover:text-secondary-fixed" data-icon="person">person</span>
+<span class="md:hidden material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer transition-opacity duration-200 active:opacity-70" data-icon="menu">menu</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter py-12 flex flex-col gap-section-padding">
+<!-- Header & Main Media -->
+<section class="flex flex-col gap-8">
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm uppercase tracking-widest border border-outline px-3 py-1 text-secondary">Available</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">VIN: WBAJB1C54K</span>
+</div>
+<h1 class="font-display-xl text-display-xl text-primary">2024 VANTAGE GT3</h1>
+</div>
+<div class="flex flex-col items-start md:items-end gap-1">
+<span class="font-headline-lg text-headline-lg text-primary">$185,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Excludes taxes &amp; fees</span>
+</div>
+</header>
+<!-- Immersive Media Gallery -->
+<div class="flex flex-col gap-unit">
+<div class="w-full aspect-video bg-surface-container flex items-center justify-center relative overflow-hidden group">
+<img alt="Luxury car side profile" class="w-full h-full object-cover" data-alt="A sleek, dark silver luxury sports car positioned in a pristine, minimalist white studio. Soft, diffused lighting highlights the sharp, aerodynamic lines and metallic paint of the vehicle. The overall atmosphere is exclusive, high-tech, and perfectly aligned with a premium automotive brand aesthetic, using deep charcoal tones against pure whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQhlrgmDeSnbVCHC8eR1F-92_Y9G6ZeJ7lkbUIwIRjp2VsC7m6_9xw5N6Ye_Gg5fjy7J9J5Uwhp1Omj22QNFRVBL5CJ5sz4GVf48UbmKcgGMrkvYxcO_ym1qUEyixN8AsVKyislriyjBgyoO6WUk7U06kTS9A0h4CE3_pPW5oITlefIz24PgVkfQ7YFmZT0y-Dm18ZC6m8eHzAwNv4dkdcmEXbS-ZBxpECoCprK24wvRx_4j3ppfPvQ34o5pAD8Q-SxLp37eKGTBc"/>
+<button class="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined text-white text-6xl" data-icon="360" data-weight="fill">360</span>
+</button>
+</div>
+<div class="grid grid-cols-6 gap-unit h-24">
+<img alt="Thumbnail 1" class="w-full h-full object-cover opacity-100 border-2 border-primary cursor-pointer" data-alt="Thumbnail detail shot of a luxury sports car's front grille and badge, set in a stark white studio environment with precise, technical lighting reflecting off the metallic surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk2EWgA3x_9B42St8TdHmCuP41mTA9qXu3uQl0XNOhQFfKHt2qDX7ovkymKgjBL8QA2Kxji81T1q99ZYFItr5MUIf3rakDTlOzM56P00DhBFFw6R2KlVF-xYki7k65NmOZnUJpugnQ2U7WNyBAyw7hVH8RckR6Onf_Qi94Faon07dxQZ2NwV3oHQfFIX8f3LviE3X7nnz8v13B9-CwfSsI2LF93TsltKzNjJjsCoBYfGlrUSZQ19BYYOSeX3mYTq8Bo8J-vQe4w4E"/>
+<img alt="Thumbnail 2" class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity cursor-pointer" data-alt="Thumbnail detail shot of a luxury car's leather interior, steering wheel, and dashboard, demonstrating premium craftsmanship in a sophisticated, minimalist presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqscpm_CUwK4_xLZQvxhKAfwNBSERzCA9b4-mwH0MZKXmj89gFArzf7DW2t-TbsAP-VgALq84Jva64yltrUjBX-n1lLixm691pP17TjrlHIgZjPYdGXYVTTdmPyM80q2auQyLjW08Vb6Q3_MUmdPwED9Ygr5Z5tQlTH924CeXWw-BJoxNhtthSUBmrUU9yExKR9ZRM47QfaSA_5OvWvk7EmkAmk9glgWx_VM4JRZjC40_zHioirwIfy6sPuEJJMOWX9VGj8MfRXwk"/>
+<img alt="Thumbnail 3" class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity cursor-pointer" data-alt="Thumbnail detail shot of an intricate alloy wheel and high-performance brake caliper on a sports car, captured in cold, technical studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsBWBoKhCne3gyDboNaqacZACXcsmU9uH1OBjmJhNVHHASh0aV040VLsB9QS497_kjKHui99kJTmdxiXNzRwjUigIYA1WXufyuNN6Y7vG8fnFnjAyJLkLAtTCupT5Ig40uGZua88vF5P5nQUle-0bKUBSfUaOEM1neq1uCPU5dgYhsW9JiLLkv7sku4VgHKnAQR36hLMXOwjSp8dMXNoS9DdL1IRFykyRV5e7K8uo9PpB7j0uZ2bzJbepC2uDaDkJ8-Fx0cmXr7rc"/>
+<img alt="Thumbnail 4" class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity cursor-pointer" data-alt="Thumbnail detail shot of the sleek rear taillights and exhaust pipes of a high-end sports car, set against a pristine, shadowless white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHtXUbsX3V62pV0kRVRREf32eu5e_RlQxhQpQn0zFtXo37L1bH396y1YSlKswVZHYn3n1T1R6uxkYjRWDidGFV0k26bJpjDq5dORXZC-rskLq98ayJy1kfxzVfKkMEvK45fKBxPDodahFZuseGI6nAhxKnXg1Mi3UzcdpgwFN5YG0qVSL64520dIw6sYxlDdHOzkLeKxkmj6yAqC5tmJ3eozW9AEhC3ptZAgSXV86qLuit_epJJyTXOqBfyuhzUm3zcMElp0NUieU"/>
+<div class="bg-surface-container flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<span class="font-label-sm text-label-sm uppercase">+12 More</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Specifications & Actions Dual Column -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Tech Specs -->
+<div class="lg:col-span-8 flex flex-col gap-12">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-6 border-b border-outline-variant pb-2">Technical Specifications</h2>
+<div class="flex flex-col gap-8">
+<!-- Spec Category -->
+<div class="flex flex-col gap-technical-grid-gap bg-outline-variant">
+<h3 class="font-label-sm text-label-sm uppercase text-on-surface-variant bg-surface py-2">Powertrain</h3>
+<div class="grid grid-cols-2 bg-surface gap-technical-grid-gap">
+<div class="bg-surface-container-lowest p-4 text-on-surface-variant font-body-md">Engine</div>
+<div class="bg-surface-container-lowest p-4 text-primary font-technical-data">4.0L Twin-Turbo V8</div>
+</div>
+<div class="grid grid-cols-2 bg-surface gap-technical-grid-gap">
+<div class="bg-surface-container-lowest p-4 text-on-surface-variant font-body-md">Power</div>
+<div class="bg-surface-container-lowest p-4 text-primary font-technical-data">503 hp @ 6000 rpm</div>
+</div>
+<div class="grid grid-cols-2 bg-surface gap-technical-grid-gap">
+<div class="bg-surface-container-lowest p-4 text-on-surface-variant font-body-md">Torque</div>
+<div class="bg-surface-container-lowest p-4 text-primary font-technical-data">505 lb-ft @ 2000 rpm</div>
+</div>
+<div class="grid grid-cols-2 bg-surface gap-technical-grid-gap">
+<div class="bg-surface-container-lowest p-4 text-on-surface-variant font-body-md">Transmission</div>
+<div class="bg-surface-container-lowest p-4 text-primary font-technical-data">8-Speed Automatic</div>
+</div>
+</div>
+<!-- Spec Category -->
+<div class="flex flex-col gap-technical-grid-gap bg-outline-variant">
+<h3 class="font-label-sm text-label-sm uppercase text-on-surface-variant bg-surface py-2">Performance</h3>
+<div class="grid grid-cols-2 bg-surface gap-technical-grid-gap">
+<div class="bg-surface-container-lowest p-4 text-on-surface-variant font-body-md">0-60 mph</div>
+<div class="bg-surface-container-lowest p-4 text-primary font-technical-data">3.5 seconds</div>
+</div>
+<div class="grid grid-cols-2 bg-surface gap-technical-grid-gap">
+<div class="bg-surface-container-lowest p-4 text-on-surface-variant font-body-md">Top Speed</div>
+<div class="bg-surface-container-lowest p-4 text-primary font-technical-data">195 mph</div>
+</div>
+<div class="grid grid-cols-2 bg-surface gap-technical-grid-gap">
+<div class="bg-surface-container-lowest p-4 text-on-surface-variant font-body-md">Drivetrain</div>
+<div class="bg-surface-container-lowest p-4 text-primary font-technical-data">Rear-Wheel Drive</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Actions Column -->
+<div class="lg:col-span-4 sticky top-24 flex flex-col gap-8">
+<!-- Primary Actions -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 flex flex-col gap-6 shadow-[0_40px_80px_rgba(0,0,0,0.04)]">
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest py-4 hover:bg-secondary transition-colors duration-300">Reserve This Vehicle</button>
+<button class="w-full border border-outline text-primary font-label-sm text-label-sm uppercase tracking-widest py-4 hover:border-secondary hover:text-secondary transition-colors duration-300">Schedule Test Drive</button>
+<p class="font-body-md text-on-surface-variant text-sm text-center">A fully refundable deposit of $1,000 is required to secure this vehicle.</p>
+</div>
+<!-- Finance Calculator Widget -->
+<div class="bg-surface-container-low p-8 flex flex-col gap-6">
+<h3 class="font-headline-md text-headline-md text-primary">Estimated Finance</h3>
+<div class="flex justify-between items-end border-b border-outline-variant pb-4">
+<span class="font-body-md text-on-surface-variant">Monthly Payment</span>
+<span class="font-headline-md text-headline-md text-primary">$3,240</span>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Down Payment</label>
+<input class="w-full h-1 bg-outline-variant appearance-none cursor-pointer accent-primary" max="50000" min="0" type="range" value="20000"/>
+<div class="flex justify-between text-sm text-on-surface-variant font-technical-data">
+<span>$0</span>
+<span>$20,000</span>
+<span>$50k</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Term (Months)</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="border border-outline py-2 font-technical-data text-primary">36</button>
+<button class="border-2 border-primary py-2 font-technical-data text-primary bg-primary/5">48</button>
+<button class="border border-outline py-2 font-technical-data text-primary">60</button>
+</div>
+</div>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-left hover:text-primary transition-colors">Apply for financing <span class="material-symbols-outlined text-sm align-middle" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline full-width">
+<div class="flex flex-col items-center w-full py-section-padding px-gutter max-w-container-max mx-auto gap-12">
+<span class="font-headline-md text-headline-md text-on-primary dark:text-on-surface uppercase font-bold tracking-tighter">MONOLITH</span>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Cookie Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Corporate</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Contact</a>
+</div>
+<p class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant text-center">
+                © 2024 MONOLITH AUTOMOTIVE. ALL RIGHTS RESERVED.
+            </p>
+</div>
+</footer>
+</body></html>

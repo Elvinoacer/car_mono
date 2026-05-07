@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monolith - Beverly Hills Location</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#858383",
+                        "on-tertiary-container": "#7f8587",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f1edec",
+                        "on-tertiary-fixed-variant": "#42484a",
+                        "tertiary-container": "#171c1f",
+                        "on-error": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "surface": "#fdf8f8",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#e9c176",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed-dim": "#c2c7ca",
+                        "on-secondary-fixed": "#261900",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#dee3e6",
+                        "on-secondary-container": "#785a1a",
+                        "on-error-container": "#93000a",
+                        "secondary": "#775a19",
+                        "on-tertiary-fixed": "#171c1f",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ddd9d8",
+                        "inverse-primary": "#c8c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-container-high": "#ebe7e6",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474646",
+                        "background": "#fdf8f8",
+                        "secondary-container": "#fed488",
+                        "on-surface": "#1c1b1b",
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fdf8f8",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "120px",
+                        "gutter": "32px",
+                        "technical-grid-gap": "1px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Serif"],
+                        "technical-data": ["Manrope"],
+                        "display-xl": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "technical-data": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant w-full sticky top-0 z-50">
+<nav class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-8">
+<a class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary" href="#">MONOLITH</a>
+<div class="hidden md:flex gap-6 ml-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Inventory</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary border-b border-secondary hover:text-secondary transition-colors duration-300 pb-1" href="#">Locations</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Finance</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden md:flex items-center justify-center cursor-pointer transition-opacity duration-200 active:opacity-70 hover:text-secondary">
+<span class="material-symbols-outlined text-primary">person</span>
+</button>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-6 py-3 cursor-pointer transition-opacity duration-200 hover:opacity-90">Reserve</button>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full min-h-[614px] flex items-end pb-section-padding pt-section-padding px-gutter">
+<div class="absolute inset-0 z-0">
+<img alt="Beverly Hills Showroom" class="w-full h-full object-cover" data-alt="A sleek, high-end automotive showroom interior in Beverly Hills during golden hour. The space features minimalist architectural lines, polished concrete floors reflecting the warm California light, and expansive floor-to-ceiling glass windows. Several luxury vehicles are strategically placed, emphasizing a private, exclusive atmosphere. The color palette is composed of metallic silvers, deep charcoal shadows, and subtle warm gold tones, reflecting a highly refined and premium light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGlbTje8kgQZXj6PEQcwurt_fzF1NVnRdEr0lfRGO7yzMIfqGQGoR7rBCYKNAmtlrs4Kh-nuOLGZMtjjSKeeprsutY5rJreqgDsOEKvgeqz9fsUyyPuDbl1Ua34N7wWouTph6qO4b2So9U4ob2CfbN7DqyTQ-B8aoAM5MnKPDYh4S9IRkv-O4hlq_7ANSkff_nN8QVn_mU_uaVTLIr04pISkpjCgjHStTX1nhPhfCPmBqM_n5R-USri6PWklBxYfiT0BIau4_5LTI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent/30"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto w-full">
+<div class="max-w-3xl">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-4 block">California Hub</span>
+<h1 class="font-display-xl text-display-xl text-primary mb-6">Premium Vehicles Available in Beverly Hills.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Experience the pinnacle of automotive engineering at our flagship Southern California showroom. Private viewings and bespoke consultations available by appointment.</p>
+</div>
+</div>
+</section>
+<!-- Location Info & Map Bento Grid -->
+<section class="py-section-padding px-gutter bg-surface">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact & Hours -->
+<div class="lg:col-span-4 flex flex-col gap-12">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Showroom Details</h2>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-outline mt-1">location_on</span>
+<div>
+<p class="font-body-md text-primary">420 N Rodeo Dr.</p>
+<p class="font-body-md text-on-surface-variant">Beverly Hills, CA 90210</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline">call</span>
+<p class="font-technical-data text-primary">+1 (310) 555-0199</p>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline">mail</span>
+<p class="font-technical-data text-primary">beverlyhills@monolith.com</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-outline mb-4">Operating Hours</h3>
+<div class="bg-outline-variant gap-[1px] flex flex-col">
+<div class="bg-surface flex justify-between py-3 px-4">
+<span class="font-technical-data text-on-surface-variant">Monday - Friday</span>
+<span class="font-technical-data text-primary">10:00 AM - 7:00 PM</span>
+</div>
+<div class="bg-surface flex justify-between py-3 px-4">
+<span class="font-technical-data text-on-surface-variant">Saturday</span>
+<span class="font-technical-data text-primary">11:00 AM - 5:00 PM</span>
+</div>
+<div class="bg-surface flex justify-between py-3 px-4">
+<span class="font-technical-data text-on-surface-variant">Sunday</span>
+<span class="font-technical-data text-primary">By Appointment</span>
+</div>
+</div>
+</div>
+<button class="w-full border border-outline text-primary font-label-sm text-label-sm uppercase tracking-widest py-4 hover:border-secondary hover:text-secondary transition-colors duration-300">Book Private Viewing</button>
+</div>
+<!-- Map -->
+<div class="lg:col-span-8 h-[600px] bg-surface-container-low border border-outline-variant relative group overflow-hidden">
+<img alt="Map of Beverly Hills location" class="w-full h-full object-cover opacity-80 mix-blend-multiply filter grayscale contrast-125" data-alt="A minimalist, high-contrast monochrome map rendering of the Beverly Hills area. The map uses a sleek silver and charcoal color palette, emphasizing major arterial roads and key landmarks with precise, fine lines. A subtle, sophisticated gold marker pinpoints the exact location of the Monolith showroom on Rodeo Drive. The overall aesthetic is highly technical, clean, and aligns perfectly with a premium light-mode design system." data-location="Beverly Hills" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApf6edQ2uaWLUqoXTrMQbE2GhZuKhb1iqNRmxP0mzQViBbUGYqvveqIssxd2oiQCAGFHsgTa8HIHqE5bKIXnYYqv4tQAjrdMQptesS92OMZ7HgxK2aM9X1TbSB70TG2kI6SzMxu64pejS8QPxkOJL51o33vfIxkD-290AOKrjg4vtMSkbfGt9B7GSxDm5Oee49wFdH9e7GX83Rc96WybLZT3ZBhVGb68xJxaVElVa4iyUOGdO5PxOBOgvz2XFirLbNvS7ci6tHnak"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-surface p-4 shadow-[0_40px_40px_-15px_rgba(0,0,0,0.04)] border border-outline-variant flex items-center gap-3">
+<div class="w-3 h-3 bg-secondary rounded-full"></div>
+<span class="font-technical-data text-primary">Monolith Beverly Hills</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Local Inventory -->
+<section class="py-section-padding px-gutter bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Available Locally</h2>
+<p class="font-body-md text-on-surface-variant">Curated inventory currently housed at our Beverly Hills location.</p>
+</div>
+<a class="font-label-sm text-label-sm text-primary uppercase tracking-widest hover:text-secondary flex items-center gap-2 transition-colors" href="#">
+                    View All Local Inventory
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-16">
+<!-- Vehicle Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/9] overflow-hidden bg-surface-container mb-6 relative">
+<div class="absolute top-4 left-4 z-10 px-3 py-1 border border-outline bg-surface/90 backdrop-blur">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Available</span>
+</div>
+<img alt="Vehicle 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A pristine, metallic silver high-performance sports car parked on a stark, minimalist white studio floor. The lighting is cold and precise, emphasizing the vehicle's aerodynamic curves and sharp edges. Deep charcoal shadows ground the car, creating a sophisticated and exclusive visual tone. The overall composition is clean, uncluttered, and perfectly suited for a luxury automotive catalog in a light-mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm5PqF3Gw1if_7l7Z-r1GuIlcEha9_AN8iQM26a5H_BUTDMrARgufLmNWeXxiLfyAFxEpPJ1G3DY7zuj4qAS0Z00TtmZ3vuX4XK0_zcSLu89BaHCIJgYNOO-EeIA9tqiupKfA0s5udmq9-yrHRDRssxt6_sqqhvzgH2lqte18NiXqUc9w-b5FnmwwiJZ1RoRo3hFuQ7USBDAbJqUSLouPjSMFBB0fJnYdkDWVhZktAHmgy3udvvc8oYHszFJY0ME6Q0Z950b4oKPE"/>
+</div>
+<div class="flex justify-between items-start border-b border-outline-variant pb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Project M-01</h3>
+<p class="font-body-md text-on-surface-variant mt-1">V8 Bi-Turbo / Obsidian Black</p>
+</div>
+<span class="font-technical-data text-primary">$185,000</span>
+</div>
+</div>
+<!-- Vehicle Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/9] overflow-hidden bg-surface-container mb-6 relative">
+<div class="absolute top-4 left-4 z-10 px-3 py-1 border border-outline bg-surface/90 backdrop-blur">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Available</span>
+</div>
+<img alt="Vehicle 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sleek, dark charcoal luxury grand tourer positioned at an angled three-quarter view in a brightly lit, minimalist warehouse space. The car's polished surface reflects crisp, linear light arrays from the ceiling. The surrounding environment is sparse, composed of white walls and subtle metallic structural elements, maintaining a clinical, high-end light-mode aesthetic that highlights mechanical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD64mmRL-U9bmXBiCyaEIeeyL8jmn35b1e0t38C9zWIiDfNbS5La8ZQ97__nTwkZWZoudrF9Ym_W6OiewdFmOaB8xRTZLuWVG4XoAVkJFDZ6DL8_b8ecG03TTmJPjBHQb4JKFhsurYrgZi5xsFJ6syctWrPXSy3abRgLQa50cnBM75L05PMVDNgqVCP0j8o-IT9uZsF5D-zouOSVU1XmCY4L6HuF-8poZGB3rl4DGdo3xJR5BRGScouG4xrNTMvKoWha_GWqoYVYA"/>
+</div>
+<div class="flex justify-between items-start border-b border-outline-variant pb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Project GT-R</h3>
+<p class="font-body-md text-on-surface-variant mt-1">Hybrid V6 / Metallic Grey</p>
+</div>
+<span class="font-technical-data text-primary">$210,000</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary border-t border-outline-variant w-full">
+<div class="flex flex-col items-center w-full py-section-padding px-gutter max-w-container-max mx-auto gap-12">
+<div class="font-headline-md text-headline-md text-on-primary font-bold tracking-tighter">MONOLITH</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container hover:text-secondary transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container hover:text-secondary transition-colors duration-300" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container hover:text-secondary transition-colors duration-300" href="#">Cookie Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container hover:text-secondary transition-colors duration-300" href="#">Corporate</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container hover:text-secondary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="font-body-md text-body-md text-on-primary text-center opacity-60">
+                © 2024 MONOLITH AUTOMOTIVE. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finance Calculator - MONOLITH AUTOMOTIVE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#858383",
+                        "on-tertiary-container": "#7f8587",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f1edec",
+                        "on-tertiary-fixed-variant": "#42484a",
+                        "tertiary-container": "#171c1f",
+                        "on-error": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "surface": "#fdf8f8",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#e9c176",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed-dim": "#c2c7ca",
+                        "on-secondary-fixed": "#261900",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#dee3e6",
+                        "on-secondary-container": "#785a1a",
+                        "on-error-container": "#93000a",
+                        "secondary": "#775a19",
+                        "on-tertiary-fixed": "#171c1f",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ddd9d8",
+                        "inverse-primary": "#c8c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-container-high": "#ebe7e6",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474646",
+                        "background": "#fdf8f8",
+                        "secondary-container": "#fed488",
+                        "on-surface": "#1c1b1b",
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fdf8f8",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "120px",
+                        "gutter": "32px",
+                        "technical-grid-gap": "1px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Serif"],
+                        "technical-data": ["Manrope"],
+                        "display-xl": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "technical-data": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[style*="FILL' 1"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom range slider styling for luxury aesthetic */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #000000;
+            cursor: pointer;
+            margin-top: -7px;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 1px #000000;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 2px;
+            cursor: pointer;
+            background: #c4c7c7; /* outline-variant */
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        
+        /* Details marker styling */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-primary-container docked full-width top-0 z-50 sticky transition-all duration-300">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary-fixed uppercase cursor-pointer transition-opacity duration-200 active:opacity-70">
+                MONOLITH
+            </div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 h-full">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 h-full flex items-center border-b-2 border-transparent cursor-pointer" href="#">
+                    Inventory
+                </a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 h-full flex items-center border-b-2 border-transparent cursor-pointer" href="#">
+                    Locations
+                </a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary dark:text-secondary-fixed-dim border-b border-secondary hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 h-full flex items-center cursor-pointer pointer-events-none" href="#">
+                    Finance
+                </a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<!-- Trailing Primary Action -->
+<button class="hidden md:block bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-6 py-3 rounded-none hover:bg-inverse-surface transition-colors duration-300">
+                    Reserve
+                </button>
+<!-- Trailing Icon Actions -->
+<button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+<!-- Shadow/Border logic per guidelines: NO border-b, use subtle drop shadow or tonal shift -->
+<div class="absolute bottom-0 w-full h-[1px] bg-outline-variant dark:bg-outline opacity-50"></div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col w-full max-w-container-max mx-auto px-gutter py-12 md:py-24">
+<!-- Header -->
+<div class="mb-16">
+<h1 class="font-display-xl text-display-xl text-primary mb-4">Financial Configuration</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Tailor a comprehensive financing structure to align perfectly with your wealth management strategy. Use our precision tools below to forecast your commitment.
+            </p>
+</div>
+<!-- Calculator Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-24 mb-section-padding">
+<!-- Left Column: Inputs -->
+<div class="lg:col-span-7 flex flex-col gap-12">
+<!-- Input Group: Vehicle Price -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end mb-2">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest">Vehicle Price</label>
+<span class="font-technical-data text-technical-data text-primary text-xl">$145,000</span>
+</div>
+<input class="w-full" max="500000" min="50000" step="1000" type="range" value="145000"/>
+<div class="flex justify-between mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">$50k</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$500k+</span>
+</div>
+</div>
+<!-- Input Group: Deposit -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end mb-2">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest">Deposit / Down Payment</label>
+<span class="font-technical-data text-technical-data text-primary text-xl">$25,000</span>
+</div>
+<input class="w-full" max="100000" min="0" step="1000" type="range" value="25000"/>
+<div class="flex justify-between mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">$0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$100k</span>
+</div>
+</div>
+<!-- Input Group: Term -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end mb-2">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest">Loan Term</label>
+<span class="font-technical-data text-technical-data text-primary text-xl">48 Months</span>
+</div>
+<!-- Custom styled segmented control using grid -->
+<div class="grid grid-cols-5 gap-technical-grid-gap bg-outline-variant p-[1px]">
+<button class="bg-surface py-3 font-technical-data text-technical-data text-on-surface-variant hover:text-primary transition-colors">12</button>
+<button class="bg-surface py-3 font-technical-data text-technical-data text-on-surface-variant hover:text-primary transition-colors">24</button>
+<button class="bg-surface py-3 font-technical-data text-technical-data text-on-surface-variant hover:text-primary transition-colors">36</button>
+<button class="bg-primary py-3 font-technical-data text-technical-data text-on-primary">48</button>
+<button class="bg-surface py-3 font-technical-data text-technical-data text-on-surface-variant hover:text-primary transition-colors">60</button>
+</div>
+</div>
+<!-- Input Group: Interest Rate -->
+<div class="flex flex-col gap-4">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mb-2">Estimated Annual Interest Rate (APR)</label>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant py-4 font-technical-data text-technical-data text-primary text-xl focus:border-primary focus:ring-0 transition-colors" step="0.1" type="number" value="4.9"/>
+<span class="absolute right-0 top-1/2 -translate-y-1/2 font-technical-data text-technical-data text-on-surface-variant">%</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Results Panel (Glassmorphism/Minimalist card) -->
+<div class="lg:col-span-5 h-full">
+<div class="sticky top-32 bg-surface border border-outline-variant p-8 lg:p-12 shadow-[0_40px_80px_rgba(0,0,0,0.04)] flex flex-col h-auto">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Estimated Monthly Payment</h2>
+<div class="font-display-xl text-display-xl text-primary mb-12 border-b border-outline-variant pb-8">
+                        $2,758<span class="text-3xl text-on-surface-variant">.42</span>
+</div>
+<div class="flex flex-col gap-6 mb-12 flex-grow">
+<!-- Breakdown Item -->
+<div class="flex justify-between items-center pb-4 border-b border-outline-variant/50">
+<span class="font-body-md text-body-md text-on-surface-variant">Principal Amount</span>
+<span class="font-technical-data text-technical-data text-primary">$120,000.00</span>
+</div>
+<!-- Breakdown Item -->
+<div class="flex justify-between items-center pb-4 border-b border-outline-variant/50">
+<span class="font-body-md text-body-md text-on-surface-variant">Total Interest</span>
+<span class="font-technical-data text-technical-data text-primary">$12,404.16</span>
+</div>
+<!-- Breakdown Item -->
+<div class="flex justify-between items-center pb-4 border-b border-outline-variant/50">
+<span class="font-body-md text-body-md text-primary font-bold">Total Amount Payable</span>
+<span class="font-technical-data text-technical-data text-secondary">$132,404.16</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest py-5 hover:bg-inverse-surface transition-colors duration-300 mb-6">
+                        Apply for Financing
+                    </button>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center opacity-70 leading-relaxed">
+                        Estimate only. Not a credit offer. Final terms are subject to credit approval and may vary based on your personal financial situation.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Collapsible Amortization Table -->
+<div class="w-full border-t border-outline-variant pt-12">
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none outline-none">
+<h3 class="font-headline-md text-headline-md text-primary">View Amortization Schedule</h3>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="mt-8 overflow-x-auto">
+<!-- Technical Spec Table Layout -->
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline">
+<th class="py-4 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-normal">Month</th>
+<th class="py-4 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-normal text-right">Payment</th>
+<th class="py-4 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-normal text-right">Principal</th>
+<th class="py-4 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-normal text-right">Interest</th>
+<th class="py-4 px-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-normal text-right">Remaining Balance</th>
+</tr>
+</thead>
+<tbody class="font-technical-data text-technical-data">
+<!-- Sample Rows -->
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 text-on-surface-variant">1</td>
+<td class="py-4 px-4 text-primary text-right">$2,758.42</td>
+<td class="py-4 px-4 text-primary text-right">$2,268.42</td>
+<td class="py-4 px-4 text-on-surface-variant text-right">$490.00</td>
+<td class="py-4 px-4 text-primary text-right">$117,731.58</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 text-on-surface-variant">2</td>
+<td class="py-4 px-4 text-primary text-right">$2,758.42</td>
+<td class="py-4 px-4 text-primary text-right">$2,277.68</td>
+<td class="py-4 px-4 text-on-surface-variant text-right">$480.74</td>
+<td class="py-4 px-4 text-primary text-right">$115,453.90</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 text-on-surface-variant">3</td>
+<td class="py-4 px-4 text-primary text-right">$2,758.42</td>
+<td class="py-4 px-4 text-primary text-right">$2,286.98</td>
+<td class="py-4 px-4 text-on-surface-variant text-right">$471.44</td>
+<td class="py-4 px-4 text-primary text-right">$113,166.92</td>
+</tr>
+<!-- Skipped rows for brevity, showing structure -->
+<tr>
+<td class="py-8 text-center text-on-surface-variant font-label-sm text-label-sm tracking-widest uppercase" colspan="5">
+<span class="material-symbols-outlined align-middle mr-2" data-icon="more_horiz">more_horiz</span>
+                                    Additional 45 months omitted
+                                </td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-surface-container-lowest flex flex-col items-center w-full py-section-padding px-gutter border-t border-outline-variant dark:border-outline">
+<div class="max-w-container-max mx-auto w-full flex flex-col items-center gap-12">
+<!-- Brand Logo -->
+<div class="font-headline-md text-headline-md text-on-primary dark:text-on-surface uppercase tracking-widest">
+                MONOLITH
+            </div>
+<!-- Links -->
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">
+                    Privacy Policy
+                </a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">
+                    Terms of Service
+                </a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">
+                    Cookie Policy
+                </a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">
+                    Corporate
+                </a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">
+                    Contact
+                </a>
+</div>
+<!-- Copyright -->
+<div class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant opacity-60 text-center">
+                © 2024 MONOLITH AUTOMOTIVE. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>

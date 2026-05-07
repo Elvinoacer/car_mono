@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MONOLITH | Admin Inventory Editor</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Design System -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#858383",
+                        "on-tertiary-container": "#7f8587",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f1edec",
+                        "on-tertiary-fixed-variant": "#42484a",
+                        "tertiary-container": "#171c1f",
+                        "on-error": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "surface": "#fdf8f8",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#e9c176",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed-dim": "#c2c7ca",
+                        "on-secondary-fixed": "#261900",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#dee3e6",
+                        "on-secondary-container": "#785a1a",
+                        "on-error-container": "#93000a",
+                        "secondary": "#775a19",
+                        "on-tertiary-fixed": "#171c1f",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ddd9d8",
+                        "inverse-primary": "#c8c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-container-high": "#ebe7e6",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474646",
+                        "background": "#fdf8f8",
+                        "secondary-container": "#fed488",
+                        "on-surface": "#1c1b1b",
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fdf8f8",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "120px",
+                        "gutter": "32px",
+                        "technical-grid-gap": "1px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Serif"],
+                        "technical-data": ["Manrope"],
+                        "display-xl": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "technical-data": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf8f8; /* surface */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c4c7c7; /* outline-variant */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #747878; /* outline */
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar Shared Component -->
+<header class="bg-surface dark:bg-primary-container text-primary dark:text-primary-fixed border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<!-- Left: Search & Navigation -->
+<div class="flex items-center gap-8">
+<button class="text-on-surface-variant hover:text-secondary transition-colors duration-300">
+<span class="material-symbols-outlined">search</span>
+</button>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary font-label-sm text-label-sm uppercase tracking-widest cursor-pointer transition-opacity duration-200 active:opacity-70 py-2" href="#">Inventory</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest cursor-pointer transition-opacity duration-200 active:opacity-70 py-2" href="#">Locations</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest cursor-pointer transition-opacity duration-200 active:opacity-70 py-2" href="#">Finance</a>
+</nav>
+</div>
+<!-- Center: Brand Logo -->
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary-fixed">
+                MONOLITH
+            </div>
+<!-- Right: Actions -->
+<div class="flex items-center gap-6">
+<button class="font-label-sm text-label-sm uppercase tracking-widest bg-primary text-on-primary px-6 py-3 hover:bg-inverse-surface transition-colors duration-300">
+                    Reserve
+                </button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors duration-300">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Sticky Action Bar -->
+<div class="sticky top-20 z-40 bg-surface/95 backdrop-blur-sm border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-gutter py-4 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary">Editing: 2023 Aston Martin DBS</h1>
+<p class="font-technical-data text-technical-data text-on-surface-variant">ID: #MNL-8924 • Last saved 2 mins ago</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-sm text-label-sm uppercase tracking-widest border border-outline-variant text-primary px-6 py-3 hover:border-secondary hover:text-secondary transition-colors duration-300 bg-surface">
+                    Save Draft
+                </button>
+<button class="font-label-sm text-label-sm uppercase tracking-widest bg-primary text-on-primary px-6 py-3 hover:bg-inverse-surface transition-colors duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.1)]">
+                    Publish Changes
+                </button>
+</div>
+</div>
+</div>
+<!-- Main Editor Canvas -->
+<main class="max-w-container-max mx-auto px-gutter py-section-padding">
+<form class="space-y-24">
+<!-- SECTION 1: Vehicle Identity -->
+<section>
+<div class="mb-8 border-b border-outline-variant pb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Vehicle Identity</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Core identification and classification data.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- VIN Entry (Spans 2 columns on large screens) -->
+<div class="lg:col-span-2 space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">VIN Number</label>
+<div class="flex gap-4">
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 font-technical-data text-technical-data text-primary focus:border-secondary focus:ring-0 transition-colors" placeholder="Enter 17-digit VIN" type="text" value="SCFRM4AEXJGC28190"/>
+<button class="font-label-sm text-label-sm uppercase tracking-widest border border-outline-variant px-6 py-3 hover:bg-surface-container-low transition-colors whitespace-nowrap flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm">qr_code_scanner</span>
+                                Decode VIN
+                            </button>
+</div>
+</div>
+<!-- Status -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Inventory Status</label>
+<select class="w-full bg-surface border border-outline-variant px-4 py-3 font-technical-data text-technical-data text-primary focus:border-secondary focus:ring-0 appearance-none">
+<option selected="" value="available">AVAILABLE</option>
+<option value="reserved">RESERVED</option>
+<option value="sold">SOLD</option>
+</select>
+</div>
+<!-- Make/Model/Year/Trim Grid -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Make</label>
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 font-technical-data text-technical-data text-primary focus:border-secondary focus:ring-0 transition-colors" type="text" value="Aston Martin"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Model</label>
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 font-technical-data text-technical-data text-primary focus:border-secondary focus:ring-0 transition-colors" type="text" value="DBS Superleggera"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Year</label>
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 font-technical-data text-technical-data text-primary focus:border-secondary focus:ring-0 transition-colors" type="text" value="2023"/>
+</div>
+<div class="lg:col-span-3 space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Trim / Edition</label>
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 font-technical-data text-technical-data text-primary focus:border-secondary focus:ring-0 transition-colors" type="text" value="Volante 770 Ultimate"/>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Technical Specifications (Mandatory 1px silver grid style) -->
+<section>
+<div class="mb-8 border-b border-outline-variant pb-4 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Technical Specifications</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Performance and mechanical attributes.</p>
+</div>
+<button class="text-secondary hover:text-primary transition-colors flex items-center gap-2 font-label-sm text-label-sm uppercase tracking-widest" type="button">
+<span class="material-symbols-outlined text-sm">add</span> Add Custom Spec
+                    </button>
+</div>
+<!-- Architectural 1px Grid Container -->
+<div class="bg-outline-variant p-[1px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px]">
+<!-- Cell -->
+<div class="bg-surface p-6 flex flex-col justify-between min-h-[100px] hover:bg-surface-container-low transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Engine</label>
+<input class="w-full bg-transparent border-none p-0 font-technical-data text-technical-data text-primary focus:ring-0 placeholder:text-outline" type="text" value="5.2L Twin-Turbo V12"/>
+</div>
+<!-- Cell -->
+<div class="bg-surface p-6 flex flex-col justify-between min-h-[100px] hover:bg-surface-container-low transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Transmission</label>
+<input class="w-full bg-transparent border-none p-0 font-technical-data text-technical-data text-primary focus:ring-0 placeholder:text-outline" type="text" value="8-Speed Automatic"/>
+</div>
+<!-- Cell -->
+<div class="bg-surface p-6 flex flex-col justify-between min-h-[100px] hover:bg-surface-container-low transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Drivetrain</label>
+<input class="w-full bg-transparent border-none p-0 font-technical-data text-technical-data text-primary focus:ring-0 placeholder:text-outline" type="text" value="Rear-Wheel Drive"/>
+</div>
+<!-- Cell -->
+<div class="bg-surface p-6 flex flex-col justify-between min-h-[100px] hover:bg-surface-container-low transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Mileage</label>
+<div class="flex items-end gap-2 w-full border-b border-transparent focus-within:border-secondary transition-colors">
+<input class="w-full bg-transparent border-none p-0 font-technical-data text-technical-data text-primary focus:ring-0 text-right" type="number" value="1245"/>
+<span class="font-technical-data text-technical-data text-on-surface-variant mb-[2px]">mi</span>
+</div>
+</div>
+<!-- Cell -->
+<div class="bg-surface p-6 flex flex-col justify-between min-h-[100px] hover:bg-surface-container-low transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Power</label>
+<div class="flex items-end gap-2 w-full border-b border-transparent focus-within:border-secondary transition-colors">
+<input class="w-full bg-transparent border-none p-0 font-technical-data text-technical-data text-primary focus:ring-0 text-right" type="number" value="759"/>
+<span class="font-technical-data text-technical-data text-on-surface-variant mb-[2px]">hp</span>
+</div>
+</div>
+<!-- Cell -->
+<div class="bg-surface p-6 flex flex-col justify-between min-h-[100px] hover:bg-surface-container-low transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Torque</label>
+<div class="flex items-end gap-2 w-full border-b border-transparent focus-within:border-secondary transition-colors">
+<input class="w-full bg-transparent border-none p-0 font-technical-data text-technical-data text-primary focus:ring-0 text-right" type="number" value="664"/>
+<span class="font-technical-data text-technical-data text-on-surface-variant mb-[2px]">lb-ft</span>
+</div>
+</div>
+<!-- Cell -->
+<div class="bg-surface p-6 flex flex-col justify-between min-h-[100px] hover:bg-surface-container-low transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">0-60 mph</label>
+<div class="flex items-end gap-2 w-full border-b border-transparent focus-within:border-secondary transition-colors">
+<input class="w-full bg-transparent border-none p-0 font-technical-data text-technical-data text-primary focus:ring-0 text-right" step="0.1" type="number" value="3.2"/>
+<span class="font-technical-data text-technical-data text-on-surface-variant mb-[2px]">sec</span>
+</div>
+</div>
+<!-- Cell -->
+<div class="bg-surface p-6 flex flex-col justify-between min-h-[100px] hover:bg-surface-container-low transition-colors">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Exterior Color</label>
+<input class="w-full bg-transparent border-none p-0 font-technical-data text-technical-data text-primary focus:ring-0" type="text" value="Xenon Grey Metallic"/>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Pricing & Financials -->
+<section>
+<div class="mb-8 border-b border-outline-variant pb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Financials</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Cost basis and pricing strategy.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-surface-container-low p-8 border border-outline-variant">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Acquisition Cost</label>
+<div class="relative">
+<span class="absolute left-4 top-3 font-technical-data text-on-surface-variant">$</span>
+<input class="w-full bg-surface border border-outline-variant pl-8 pr-4 py-3 font-technical-data text-technical-data text-primary focus:border-secondary focus:ring-0 transition-colors" type="text" value="285,000"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Est. Reconditioning</label>
+<div class="relative">
+<span class="absolute left-4 top-3 font-technical-data text-on-surface-variant">$</span>
+<input class="w-full bg-surface border border-outline-variant pl-8 pr-4 py-3 font-technical-data text-technical-data text-primary focus:border-secondary focus:ring-0 transition-colors" type="text" value="4,500"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block text-secondary">Target Sale Price</label>
+<div class="relative">
+<span class="absolute left-4 top-3 font-technical-data text-secondary">$</span>
+<input class="w-full bg-surface border border-secondary pl-8 pr-4 py-3 font-technical-data text-technical-data text-primary focus:ring-0 transition-colors shadow-[0_0_10px_rgba(119,90,25,0.1)]" type="text" value="345,000"/>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Media Manager Placeholder -->
+<section>
+<div class="mb-8 border-b border-outline-variant pb-4 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Media Asset Management</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">High-fidelity imagery and video links.</p>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-widest border border-outline-variant px-4 py-2 hover:border-secondary hover:text-secondary transition-colors" type="button">
+                        Manage Assets
+                    </button>
+</div>
+<!-- Drag & Drop Zone -->
+<div class="border border-dashed border-outline-variant hover:border-secondary transition-colors bg-surface-container-low p-16 flex flex-col items-center justify-center cursor-pointer mb-8">
+<span class="material-symbols-outlined text-4xl text-outline mb-4">cloud_upload</span>
+<p class="font-body-md text-body-md text-primary mb-2">Drag and drop high-resolution assets here</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Accepts JPG, PNG, WEBP (Max 20MB per file)</p>
+</div>
+<!-- Uploaded Assets Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<!-- Thumbnail 1 (Hero) -->
+<div class="relative group aspect-[4/3] border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A front 3/4 angle view of a dark grey Aston Martin DBS parked inside a minimalist, brightly lit, high-end automotive showroom. The setting features pristine white floors and architectural lighting that emphasizes the car's sculpted lines. The overall aesthetic is luxurious, clean, and professional, strictly adhering to a light-mode color palette with deep charcoal shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwJZvy1WECcvm25i2rDUY_WT6t8mGqQ3xNfp83lE3-UsCPggF41Yw0l4-YCpQf6LUwAL0NM5Z5qzreB_nFc5rZYb5-H1bJOYPMxG_yYnYeT6KTsrFj5GKi6HnfzFIQW6JWX9V9JHqd7KHtvSuoGWIK0ynLSLCDwd-OF1DEXJ-RginBb-sJoMnlN7tng6pQUZAsao7eG-cR9DDtdSF2QilkxWxEU8uTFqU2MGjqPReAlSC-YETJ4ZD33PuvnlD_qvxOjyG4yjunDis"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-surface text-primary p-2 rounded-full hover:text-secondary"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="bg-surface text-error p-2 rounded-full"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+<span class="absolute top-2 left-2 bg-primary text-on-primary font-label-sm text-[10px] px-2 py-1 uppercase tracking-widest">Hero</span>
+</div>
+<!-- Thumbnail 2 -->
+<div class="relative group aspect-[4/3] border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed close-up shot of the interior dashboard of a luxury sports car, focusing on the steering wheel, digital instrument cluster, and premium leather stitching. The lighting is soft and even, highlighting the meticulous craftsmanship. The environment is an immaculate, white-themed studio, creating a stark, high-contrast, premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZLhuYZDl2cpgSTZk5qw3tZX0QxwSrCEVEBYkegmwBwdckarBOxS__YwMHhTMXUL6SysFkBLHoOhtAJ2ezTJdKVfisOX0g9bIrWcCvnuZeNPYVig6-AmTxiU5zfIdw0bMl2LPxedLnVjo4DpURA4eF-R8Zqcr6z0Z774qD2m6fR9eD1rHH9n-dHpwUbbCUSMP9l4sQlRygq___7d5umjw6s4b3to5kwkbynhvsu0eTKgOVBp3lA1WcbVJMFjPp7q87Z7dyaA15EgY"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-surface text-primary p-2 rounded-full hover:text-secondary"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="bg-surface text-error p-2 rounded-full"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<!-- Add Placeholder -->
+<div class="aspect-[4/3] border border-outline-variant bg-surface-container flex items-center justify-center hover:bg-surface-variant transition-colors cursor-pointer text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">add_photo_alternate</span>
+</div>
+</div>
+</section>
+<!-- SECTION 5: AI Description Generator -->
+<section>
+<div class="mb-8 border-b border-outline-variant pb-4 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Marketing Narrative</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Curated description for public listing.</p>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> Generate with AI
+                    </button>
+</div>
+<div class="bg-surface border border-outline-variant p-1 focus-within:border-secondary transition-colors">
+<textarea class="w-full min-h-[240px] bg-transparent border-none resize-none font-body-md text-body-lg text-primary focus:ring-0 p-6 leading-relaxed" placeholder="Enter or generate the vehicle narrative...">The 2023 Aston Martin DBS Volante 770 Ultimate represents the pinnacle of British grand touring. Finished in an understated yet commanding Xenon Grey Metallic, this specific example encapsulates the raw emotion of a 5.2-liter twin-turbocharged V12 engine beneath a masterfully sculpted silhouette. 
+
+Inside, the cabin is an exercise in restraint and exquisite material selection, offering an environment that is both driver-focused and supremely comfortable. With nominal mileage and meticulous provenance, this DBS stands ready for its next curator.</textarea>
+</div>
+</section>
+</form>
+</main>
+<!-- Footer Shared Component -->
+<footer class="bg-primary dark:bg-surface-container-lowest text-on-primary dark:text-on-surface border-t border-outline-variant dark:border-outline mt-24">
+<div class="flex flex-col items-center w-full py-section-padding px-gutter max-w-container-max mx-auto gap-12">
+<!-- Brand Logo -->
+<div class="font-headline-md text-headline-md text-on-primary dark:text-on-surface">
+                MONOLITH
+            </div>
+<!-- Links -->
+<div class="flex flex-wrap justify-center gap-8 font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container dark:text-on-surface-variant">
+<a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Privacy Policy</a>
+<a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Terms of Service</a>
+<a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Cookie Policy</a>
+<a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Corporate</a>
+<a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-300 cursor-pointer" href="#">Contact</a>
+</div>
+<!-- Copyright -->
+<div class="font-body-md text-body-md text-on-primary-container dark:text-on-surface-variant text-center">
+                © 2024 MONOLITH AUTOMOTIVE. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>

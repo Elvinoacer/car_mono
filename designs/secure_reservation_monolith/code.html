@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MONOLITH - Secure Reservation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Serif:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f1edec",
+                        "inverse-on-surface": "#f4f0ef",
+                        "tertiary-fixed-dim": "#c2c7ca",
+                        "background": "#fdf8f8",
+                        "on-tertiary-container": "#7f8587",
+                        "tertiary": "#000000",
+                        "surface": "#fdf8f8",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#785a1a",
+                        "surface-tint": "#5f5e5e",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#dee3e6",
+                        "on-background": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#42484a",
+                        "surface-bright": "#fdf8f8",
+                        "on-secondary-fixed": "#261900",
+                        "on-surface-variant": "#444748",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1c1b1b",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-container-low": "#f7f3f2",
+                        "outline": "#747878",
+                        "secondary-fixed-dim": "#e9c176",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#171c1f",
+                        "inverse-surface": "#313030",
+                        "on-primary": "#ffffff",
+                        "secondary": "#775a19",
+                        "primary": "#000000",
+                        "on-tertiary-fixed": "#171c1f",
+                        "secondary-container": "#fed488",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-dim": "#ddd9d8",
+                        "primary-fixed": "#e5e2e1",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c8c6c5",
+                        "secondary-fixed": "#ffdea5",
+                        "on-primary-container": "#858383",
+                        "surface-container-high": "#ebe7e6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "technical-grid-gap": "1px",
+                        "gutter": "32px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "section-padding": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Noto Serif", "serif"],
+                        "technical-data": ["Manrope", "sans-serif"],
+                        "display-xl": ["Noto Serif", "serif"],
+                        "body-md": ["Manrope", "sans-serif"],
+                        "body-lg": ["Manrope", "sans-serif"],
+                        "label-sm": ["Manrope", "sans-serif"],
+                        "headline-lg": ["Noto Serif", "serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "technical-data": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Minimal Transactional Header -->
+<header class="w-full bg-surface border-b border-outline-variant sticky top-0 z-50">
+<div class="max-w-container-max mx-auto px-gutter py-4 flex justify-between items-center">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-sm text-label-sm uppercase">Cancel</span>
+</button>
+<div class="font-headline-md text-headline-md tracking-widest text-primary uppercase">
+                MONOLITH
+            </div>
+<div class="w-[80px]"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<!-- Main Layout -->
+<main class="max-w-container-max mx-auto px-gutter py-[80px] w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-[120px]">
+<!-- Left Column: Flow -->
+<div class="lg:col-span-7 flex flex-col gap-[64px]">
+<!-- Progress Stepper -->
+<nav aria-label="Progress">
+<ol class="flex items-center" role="list">
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-[1px] w-full bg-primary"></div>
+</div>
+<div class="relative flex h-6 w-6 items-center justify-center bg-primary rounded-none">
+<span class="material-symbols-outlined text-[14px] text-on-primary" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="absolute -bottom-6 left-0 font-label-sm text-label-sm text-primary uppercase whitespace-nowrap">Details</span>
+</li>
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-[1px] w-full bg-primary"></div>
+</div>
+<div class="relative flex h-6 w-6 items-center justify-center bg-primary rounded-none">
+<span class="material-symbols-outlined text-[14px] text-on-primary" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="absolute -bottom-6 left-0 font-label-sm text-label-sm text-primary uppercase whitespace-nowrap">Identity</span>
+</li>
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-[1px] w-full bg-outline-variant"></div>
+</div>
+<div class="relative flex h-6 w-6 items-center justify-center bg-surface border border-primary rounded-none">
+<span class="font-technical-data text-[12px] text-primary">3</span>
+</div>
+<span class="absolute -bottom-6 left-0 font-label-sm text-label-sm text-primary uppercase whitespace-nowrap border-b border-secondary pb-[2px]">Deposit</span>
+</li>
+<li class="relative">
+<div class="relative flex h-6 w-6 items-center justify-center bg-surface border border-outline-variant rounded-none">
+<span class="font-technical-data text-[12px] text-outline-variant">4</span>
+</div>
+<span class="absolute -bottom-6 left-0 font-label-sm text-label-sm text-outline-variant uppercase whitespace-nowrap">Confirm</span>
+</li>
+</ol>
+</nav>
+<div class="h-[1px] w-full bg-outline-variant mt-4"></div>
+<!-- Active Step: Deposit -->
+<section class="flex flex-col gap-8">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Secure Deposit</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">A fully refundable deposit is required to secure this vehicle and initiate the final acquisition process. Your vehicle will be removed from public inventory.</p>
+</div>
+<!-- Payment Form -->
+<div class="bg-surface border border-outline-variant p-8 flex flex-col gap-6">
+<div class="flex justify-between items-end mb-4 border-b border-outline-variant pb-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Due Today</span>
+<span class="font-headline-md text-headline-md text-primary">£5,000.00</span>
+</div>
+<!-- Payment Details Grid -->
+<form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="col-span-1 md:col-span-2 space-y-2">
+<label class="font-label-sm text-label-sm text-primary uppercase" for="card-name">Name on Card</label>
+<input class="w-full bg-surface-container border-outline-variant focus:border-primary focus:ring-0 rounded-none font-technical-data text-technical-data text-primary px-4 py-3 placeholder:text-outline" id="card-name" name="card-name" placeholder="ALEXANDER WRIGHT" required="" type="text"/>
+</div>
+<div class="col-span-1 md:col-span-2 space-y-2 relative">
+<label class="font-label-sm text-label-sm text-primary uppercase" for="card-number">Card Number</label>
+<input class="w-full bg-surface-container border-outline-variant focus:border-primary focus:ring-0 rounded-none font-technical-data text-technical-data text-primary px-4 py-3 pl-12 placeholder:text-outline" id="card-number" name="card-number" placeholder="0000 0000 0000 0000" required="" type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-[34px] text-on-surface-variant">credit_card</span>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary uppercase" for="expiry">Expiry Date</label>
+<input class="w-full bg-surface-container border-outline-variant focus:border-primary focus:ring-0 rounded-none font-technical-data text-technical-data text-primary px-4 py-3 placeholder:text-outline" id="expiry" name="expiry" placeholder="MM/YY" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary uppercase" for="cvc">CVC</label>
+<input class="w-full bg-surface-container border-outline-variant focus:border-primary focus:ring-0 rounded-none font-technical-data text-technical-data text-primary px-4 py-3 placeholder:text-outline" id="cvc" name="cvc" placeholder="123" required="" type="text"/>
+</div>
+</form>
+<div class="flex items-start gap-3 mt-4">
+<span class="material-symbols-outlined text-on-surface-variant mt-1" style="font-size: 20px;">lock</span>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Payments are securely processed. Your card details are never stored on our servers. By proceeding, you agree to the <a class="text-primary underline decoration-outline-variant underline-offset-4 hover:decoration-primary transition-colors" href="#">Deposit Terms</a>.</p>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex justify-between items-center pt-8 border-t border-outline-variant">
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back to Identity
+                    </button>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm uppercase px-8 py-4 hover:bg-inverse-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                        Authorise £5,000
+                    </button>
+</div>
+</section>
+</div>
+<!-- Right Column: Context/Summary (Sticky) -->
+<div class="lg:col-span-5 relative">
+<aside class="sticky top-[120px] bg-surface flex flex-col border border-outline-variant">
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden border-b border-outline-variant">
+<img alt="1964 Aston Martin DB5" class="w-full h-full object-cover grayscale-[20%] contrast-125 mix-blend-multiply" data-alt="A moody, high-end studio photograph of a classic silver 1964 Aston Martin DB5. The car is positioned at a slight three-quarter angle against an infinite minimalist concrete backdrop. Lighting is soft, high-key, and cool, reflecting perfectly off the metallic paint to emphasize the vehicle's sweeping, engineered curves. The scene evokes a sense of automotive heritage, quiet luxury, and mechanical precision within a light-mode color palette dominated by greys, silvers, and stark whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgoMjflElk8m0OftDh9qs3l2WriXRQu84lTYS7zUKoXvAmOHjkPnS1s3ugZiRfJUdJ0yTXA-pMuWuBGAD4rWxNxFBmOeA7xkKV6d_0u2QRaoTqEy9lQv9UMdqqthrApZRt6lhDJzf936PTOIO7dH404NLvRIiliogSpuD5aIYA5Y9Y3BeH8fL_9gpvI6-B3jYU8_rhxQWgEZWj9UBZAW01mbAc0jQLiAJ_u1UViZA1p-SjW0GqakDhb-DqorqU9f8dB5lVFWJ06bI"/>
+<div class="absolute top-4 left-4 bg-surface px-3 py-1 border border-outline-variant font-label-sm text-label-sm text-primary uppercase">
+                        Reserved
+                    </div>
+</div>
+<div class="p-8 flex flex-col gap-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-1">1964 Aston Martin DB5</h2>
+<p class="font-technical-data text-technical-data text-on-surface-variant">Vantage Specification</p>
+</div>
+<!-- Technical Molecular Grid -->
+<div class="grid grid-cols-2 gap-technical-grid-gap bg-outline-variant border border-outline-variant">
+<div class="bg-surface p-4 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Chassis</span>
+</div>
+<div class="bg-surface p-4 flex flex-col justify-center">
+<span class="font-technical-data text-technical-data text-primary">DB5C/1255/R</span>
+</div>
+<div class="bg-surface p-4 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Mileage</span>
+</div>
+<div class="bg-surface p-4 flex flex-col justify-center">
+<span class="font-technical-data text-technical-data text-primary">42,100 mi</span>
+</div>
+<div class="bg-surface p-4 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Total Price</span>
+</div>
+<div class="bg-surface p-4 flex flex-col justify-center">
+<span class="font-technical-data text-technical-data text-primary">£850,000</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Collection scheduled for <span class="text-primary font-technical-data">London Heritage Vault</span> upon completion of final paperwork.</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</body></html>
