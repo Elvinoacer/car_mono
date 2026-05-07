@@ -5,7 +5,9 @@ export default function AdminHeader({ title }: { title: string }) {
   return (
     <header className="h-20 bg-surface flex items-center justify-between px-gutter border-b border-outline-variant shrink-0">
       <div>
-        <h1 className="font-headline-md text-headline-md text-primary">{title}</h1>
+        <h1 className="font-headline-md text-headline-md text-primary">
+          {title}
+        </h1>
       </div>
       <div className="flex items-center gap-6">
         <Link href="/admin/notifications" className="relative group">
@@ -16,7 +18,7 @@ export default function AdminHeader({ title }: { title: string }) {
         </Link>
         <div className="w-[1px] h-6 bg-outline-variant"></div>
         <ThemeToggle />
-        <Link 
+        <Link
           href="/admin/inventory/create"
           className="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-6 py-3 flex items-center gap-2 hover:bg-inverse-surface transition-colors duration-300"
         >
